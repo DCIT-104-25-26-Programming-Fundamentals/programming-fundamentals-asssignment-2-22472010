@@ -54,6 +54,48 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+
 #include <iostream>
 using namespace std;
 
+void printSingleTable(int num) {
+    if (num <= 0) {
+        cout << "Error: Number must be greater than 0." << endl;
+        return;
+    }
+
+    cout << "Multiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+    }
+}
+
+void printMultipleTables(int n) {
+    if (n <= 0) {
+        cout << "Error: Number of tables must be greater than 0." << endl;
+        return;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        printSingleTable(i);
+        if (i < n) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
+
+int main() {
+    int num, n;
+
+    cout << "--- PART A: Single Table ---" << endl;
+    cout << "Enter a number: ";
+    cin >> num;
+    printSingleTable(num);
+
+    cout << "\n--- PART B: Tables from 1 to N ---" << endl;
+    cout << "Enter a number N: ";
+    cin >> n;
+    printMultipleTables(n);
+
+    return 0;
+}
